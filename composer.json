@@ -1,0 +1,53 @@
+{
+    "name": "lquintana/google-places-popular-times",
+    "description": "Get places from google with its own pupular time for Laravel 5",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Luciano Quintana",
+            "email": "lquintana0707@gmail.com",
+            "homepage": "http://linkedin.com/in/lquintana1980"
+        }
+    ],
+    "homepage": "https://github.com/lquintana/googleplaces",
+    "keywords": ["Laravel", "GooglePlaces", "Popular Times", "Google", "Places"],
+    "minimum-stability": "dev",
+    "require": {
+        "illuminate/support": "~5",
+        "guzzlehttp/guzzle": "^6.3",
+        "php": ">=7.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~7.0",
+        "mockery/mockery": "^1.1",
+        "orchestra/testbench": "~3.0",
+        "sempro/phpunit-pretty-print": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "lquintana\\GooglePlaces\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "lquintana\\GooglePlaces\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "lquintana\\GooglePlaces\\GooglePlacesServiceProvider"
+            ],
+            "aliases": {
+                "GooglePlaces": "lquintana\\GooglePlaces\\Facades\\GooglePlaces"
+            }
+        }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
+      },
+      "minimum-stability": "dev",
+      "prefer-stable": true
+}
