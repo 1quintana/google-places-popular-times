@@ -13,8 +13,8 @@ You have to refer to the google API to understand their requirements and use thi
 
 ## Requirements
 
-- >= PHP 7.1
-- >= Laravel 5.6
+- &gt;= PHP 7.1
+- &gt;= Laravel 5.6
 
 ## Installation
 
