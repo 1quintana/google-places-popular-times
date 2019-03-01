@@ -5,15 +5,14 @@ namespace lquintana\GooglePlaces;
 use GuzzleHttp\Client;
 use lquintana\GooglePlaces\Exceptions\GooglePlacesException;
 
-class GooglePlaces
+final class GooglePlaces
 {
-
     const NEARBY_SEARCH_URL = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?';
     const DETAIL_URL = 'https://maps.googleapis.com/maps/api/place/details/json?';
     
     /**
-     * Exception by google
-     * @var Array
+     * Google exceptions
+     * @var array
      */
     private $exceptions = [
         'REQUEST_DENIED' => 'API key is invalid. Request was denied!',
@@ -23,12 +22,12 @@ class GooglePlaces
     ];
 
     /**
-     * @var GuzzleHttp\Client 
+     * @var Client
      */
     private $client;
 
     /**
-     * @var Array
+     * @var array
      */
     private $params;
 
@@ -37,41 +36,47 @@ class GooglePlaces
         $this->client = new Client();
         $this->params['key'] = !is_null($key) ? $key : env('GOOGLE_KEY');
     }
-
+    
     /**
-     * Minimun params required location=26.189774,-80.103775&radius=5000
+     * Minimum params required location=26.189774,-80.103775&radius=5000
      * Refer to google documentation for more details, https://developers.google.com/places/web-service/search to Nearby Search requests
-     * @return Array 
+     * @param array $params
+     * @return array
+     * @throws GooglePlacesException
      */
     public function nearbyPlaces($params = [])
     {
-        $nearbayPlaces = json_decode(
+        $nearbyPlaces = json_decode(
             $this->client->get(
                 self::NEARBY_SEARCH_URL.  http_build_query(array_merge($params, $this->params))
             )->getBody()->getContents()
         );
         
-        if(array_key_exists($nearbayPlaces->status, $this->exceptions))
-            throw new GooglePlacesException($this->exceptions[$nearbayPlaces->status]);
+        if(array_key_exists($nearbyPlaces->status, $this->exceptions))
+            throw new GooglePlacesException($this->exceptions[$nearbyPlaces->status]);
 
-        return $nearbayPlaces;
+        return $nearbyPlaces;
     }
-
+    
     /**
-     * Minimun params required location=26.189774,-80.103775&radius=5000
+     * Minimum params required location=26.189774,-80.103775&radius=5000
      * Refer to google documentation for more details, https://developers.google.com/places/web-service/search to Nearby Search requests
-     * @return Array 
+     * @param array $params
+     * @return array
+     * @throws GooglePlacesException
      */
     public function nearbyPlacesWithPopularTimes($params = [])
     {
-        $nearbayPlaces = $this->nearbyPlaces($params);
-        return Helpers::placesWithPopularTimes($nearbayPlaces->results);
+        $nearbyPlaces = $this->nearbyPlaces($params);
+        return Helpers::placesWithPopularTimes($nearbyPlaces->results);
     }
-
+    
     /**
-     * Minimun params required placeid, ex placeid=ChIJde9xlp4B2YgRVl9hn3TriiI
+     * Minimum params required placeid, ex placeid=ChIJde9xlp4B2YgRVl9hn3TriiI
      * Refer to google documentation for more details, https://developers.google.com/places/web-service/details
-     * @return Object 
+     * @param null $params
+     * @return Object
+     * @throws GooglePlacesException
      */
     public function placeDetails($params = null)
     {
@@ -86,11 +91,13 @@ class GooglePlaces
 
         return $placeDetails;
     }
-
+    
     /**
      * Minimun params required placeid, ex placeid=ChIJde9xlp4B2YgRVl9hn3TriiI
      * Refer to google documentation for more details, https://developers.google.com/places/web-service/details
-     * @return Array 
+     * @param null $params
+     * @return array
+     * @throws GooglePlacesException
      */
     public function placeDetailWithPopularTimes($params = null)
     {
