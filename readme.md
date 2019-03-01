@@ -7,14 +7,14 @@
 
 ## Introduction
 
-I am workig on this package for laravel 5.6 or higher versions to get list of places with its popular time or a place details with the popular times which is still not shared by the google API.
+This package gets a list of places with popular times or a place details with popular times which is still not shared by the google API.
 
 You have to refer to the google API to understand their requirements and use this package https://developers.google.com/places/web-service/intro
 
 ## Requirements
 
-- PHP 7.1 or higher
-- Laravel 5
+- >= PHP 7.1
+- >= Laravel 5.6
 
 ## Installation
 
@@ -25,15 +25,19 @@ $ composer require lquintana/google-places-popular-times
 ```
 Open the file config/app.php and add the service provider to the providers array.
 
+```
 'providers' => [
     lquintana\GooglePlaces\GooglePlacesServiceProvider
 ],
+```
 
 On the same file config/app.php add the alias to the aliases array.
 
+```
 'aliases' => [
     "GooglePlaces" => lquintana\GooglePlaces\Facades\GooglePlaces
 ]
+```
 
 
 ## Configuration
@@ -41,25 +45,20 @@ You first need to create a google key from the google console to use this packag
 
 ``` bash
 GOOGLE_KEY=ADD YOUR GOOGLE KEY HERE
-GOOGLE_PLACE_NEARBY_SEARCH_URL=https://maps.googleapis.com/maps/api/place/nearbysearch/json?
-GOOGLE_PLACE_DETAIL_URL=https://maps.googleapis.com/maps/api/place/details/json?
 ```
 
 ## Usage
+Example url when trying to get a list of popular places.
 
-<br /><br />
-This is en example of the url that I run in my local to get the results when trying to get a list of popular places.
-http://places.test/api/places?location=26.189774,-80.103775&radius=5000&keyword=restaurants
+`http://places.test/api/places?location=26.189774,-80.103775&radius=5000&keyword=restaurants`
 
 This is an example of the url to get a place with its own popular times.
-http://places.test/api/places/ChIJ5z2kxpsB2YgRjUgd_WuWdWc
+`http://places.test/api/places/ChIJ5z2kxpsB2YgRjUgd_WuWdWc`
 
-
-<br /><br />
 This is an example of my controller on laravel. You can find the method index which list places with its own popular time for each of them and the method show to show only one place with its own popular times.
 
 
-``` bash
+``` php
 <?php
 
 namespace App\Http\Controllers;

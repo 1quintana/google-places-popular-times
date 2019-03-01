@@ -20,7 +20,7 @@ class Helpers
     ];
 
     /**
-    * Use to map pupular times.
+    * Use to map popular times.
     * @var array
     */
     const MAP_DAYS = [
@@ -32,9 +32,10 @@ class Helpers
         6 => 'saturday',
         7 => 'sunday',
     ];
-
-/**
+    
+    /**
      * Return Place with popular times
+     * @param array $places
      * @return array
      */
     public static function placesWithPopularTimes($places = [])
@@ -61,9 +62,10 @@ class Helpers
         
         return $placesWithTimes;
     }
-
+    
     /**
      * GetAsync all the times for all given places
+     * @param array $places
      * @return array
      */
     public static function getPopularTimes($places = [])
@@ -82,9 +84,11 @@ class Helpers
 
         return Promise\settle($requestPromises)->wait();
     }
-
+    
     /**
      * If place has position with time need to merge both place and times
+     * @param $place
+     * @param $popularTime
      * @return array
      */
     private static function addPopularTimeToPlace($place, $popularTime)
@@ -101,9 +105,10 @@ class Helpers
         
         return array_merge((array) $place, $time);
     }
-
+    
     /**
      * Convert popular times indexes to human read
+     * @param $popularTimes
      * @return array
      */
     private static function mapDaysOnPopularTime($popularTimes)
