@@ -1,9 +1,8 @@
 # Google Places With Popular Times For Laravel 5
-
-[![Latest Version on Packagist][ico-version]][link-packagist]
-[![Total Downloads][ico-downloads]][link-downloads]
-[![Build Status][ico-travis]][link-travis]
-[![StyleCI][ico-styleci]][link-styleci]
+    
+[![Total Downloads](https://poser.pugx.org/lquintana/google-places-popular-times/downloads)](https://packagist.org/packages/lquintana/google-places-popular-times)
+[![GitHub license](https://img.shields.io/github/license/1quintana/google-places-popular-times.svg)](https://github.com/1quintana/google-places-popular-times/blob/master/LICENSE)
+[![Beerpay](https://beerpay.io/1quintana/google-places-popular-times/badge.svg?style=beer-square)](https://beerpay.io/1quintana/google-places-popular-times)
 
 ## Introduction
 
@@ -27,7 +26,7 @@ Open the file config/app.php and add the service provider to the providers array
 
 ```
 'providers' => [
-    lquintana\GooglePlaces\GooglePlacesServiceProvider
+    lquintana\GooglePlaces\GooglePlacesServiceProvider::class
 ],
 ```
 
@@ -35,7 +34,7 @@ On the same file config/app.php add the alias to the aliases array.
 
 ```
 'aliases' => [
-    "GooglePlaces" => lquintana\GooglePlaces\Facades\GooglePlaces
+    "GooglePlaces" => lquintana\GooglePlaces\Facades\GooglePlaces::class
 ]
 ```
 
@@ -109,6 +108,18 @@ class PlaceController extends Controller
 
 ```
 
+You can also get the places and the place details without the popular times.
+
+``` php
+$googlePlaces->placeDetails($placeId);
+
+```
+
+``` php
+$googlePlaces->nearbyPlaces($params);
+
+```
+
 ## Some screenshots with results from the method index 
 ![screen shot 2019-02-25 at 9 49 53 am](https://user-images.githubusercontent.com/11234646/53346291-b9a7ed80-38e4-11e9-9a51-d5d48bf0b22b.png)
 
@@ -159,3 +170,8 @@ MIT. Please see the [license file](license.md) for more information.
 [link-styleci]: https://styleci.io/repos/12345678
 [link-author]: https://github.com/lquintana
 [link-contributors]: ../../contributors]
+
+## Support on Beerpay
+Hey dude! Help me out for a couple of :beers:!
+
+[![Beerpay](https://beerpay.io/1quintana/google-places-popular-times/badge.svg?style=beer-square)](https://beerpay.io/1quintana/google-places-popular-times)  [![Beerpay](https://beerpay.io/1quintana/google-places-popular-times/make-wish.svg?style=flat-square)](https://beerpay.io/1quintana/google-places-popular-times?focus=wish)
