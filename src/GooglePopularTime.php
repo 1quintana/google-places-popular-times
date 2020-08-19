@@ -17,19 +17,19 @@ class GooglePopularTime
      */
     private $config;
 
-    public function __construct(array $config = [])
+    public function __construct(array $config)
     {
         $this->client = new Client();
         $this->config = $config;
     }
 
     /**
-     * Minimum params required ['location' => '26.189774,-80.103775', 'radius' => 5000]
-     * Refer to google documentation for more details, https://developers.google.com/places/web-service/search to Nearby Search requests.
+     * Get nearby places from google api.
+     *
      * @param array $params
      * @return object
      */
-    public function getNearbyPlaces(array $params = []): object
+    public function getNearbyPlaces(array $params): object
     {
         return json_decode(
             $this->client->get(
@@ -39,16 +39,47 @@ class GooglePopularTime
     }
 
     /**
-     * Minimum params required ['location' => '26.189774,-80.103775', 'radius' => 5000]
-     * Refer to google documentation for more details, https://developers.google.com/places/web-service/search to Nearby Search requests.
+     * Get nearby places from google API and add popular times.
+     *
      * @param array $params
      * @return object
      */
-    public function getNearbyPlacesWithPopularTimes(array $params = [])
+    public function getNearbyPlacesWithPopularTimes(array $params)
     {
-        return $nearbyPlaces = $this->getNearbyPlaces($params);
+        $nearbyPlaces = $this->getNearbyPlaces($params);
+        if ($nearbyPlaces->status == 'OK') {
+            return PopularTime::placesWithPopularTimes($nearbyPlaces->results);
+        }
+    }
 
-        return PopularTime::placesWithPopularTimes($nearbyPlaces->results);
+    /**
+     * Get place with details.
+     *
+     * @param $placeId
+     * @return object
+     */
+    public function getPlaceDetails(string $placeId): object
+    {
+        return json_decode(
+            $this->client->get(
+                $this->getUrl('details').'&place_id='.$placeId
+            )->getBody()->getContents()
+        );
+    }
+
+    /**
+     * Get place with details and add popular times.
+     *
+     * @param string $placeId
+     * @return array
+     */
+    public function getPlaceDetailsWithPopularTimes(string $placeId)
+    {
+        $placeDetails = $this->getPlaceDetails($placeId);
+
+        if ($placeDetails->status == 'OK') {
+            return PopularTime::placesWithPopularTimes([$placeDetails->result]);
+        }
     }
 
     /**
