@@ -10,9 +10,9 @@ class PopularTime
     const GOOGLE_SEARCH_URL = 'https://www.google.com/search?';
 
     /**
-    * Basic params required by google search
-    * @var array
-    */
+     * Basic params required by google search.
+     * @var array
+     */
     const PARAMS = [
         'tbm' => 'map',
         'hl' => 'en',
@@ -20,9 +20,9 @@ class PopularTime
     ];
 
     /**
-    * Use to map popular times.
-    * @var array
-    */
+     * Use to map popular times.
+     * @var array
+     */
     const MAP_DAYS = [
         1 => 'monday',
         2 => 'tuesday',
@@ -32,9 +32,9 @@ class PopularTime
         6 => 'saturday',
         7 => 'sunday',
     ];
-    
+
     /**
-     * Return Place with popular times
+     * Return Place with popular times.
      * @param array $places
      * @return array
      */
@@ -43,28 +43,25 @@ class PopularTime
         $results = self::getPopularTimes($places);
 
         $placesWithTimes = [];
-        foreach($results as $placeId => $result)
-        {
+        foreach ($results as $placeId => $result) {
             $googleResponse = $result['value']->getBody()->getContents();
-            $googleResponse =  json_decode(str_replace(")]}'", "",$googleResponse));
-            
-            foreach($places as $place)
-            {
-                if(isset($googleResponse[0][1][0][14]) && $placeId == $place->place_id)
-                {
+            $googleResponse = json_decode(str_replace(")]}'", '', $googleResponse));
+
+            foreach ($places as $place) {
+                if (isset($googleResponse[0][1][0][14]) && $placeId == $place->place_id) {
                     $popularTime = $googleResponse[0][1][0][14];
                     $placesWithTimes[] = self::addPopularTimeToPlace($place, $popularTime);
-                }elseif($placeId == $place->place_id){
+                } elseif ($placeId == $place->place_id) {
                     $placesWithTimes[] = $place;
                 }
             }
         }
-        
+
         return $placesWithTimes;
     }
-    
+
     /**
-     * GetAsync all the times for all given places
+     * GetAsync all the times for all given places.
      * @param array $places
      * @return array
      */
@@ -73,8 +70,7 @@ class PopularTime
         $client = new Client();
 
         $requestPromises = [];
-        foreach($places as $place)
-        {
+        foreach ($places as $place) {
             //Find address and place name as unique id
             $address = isset($place->formatted_address) && $place->formatted_address != '' ? $place->formatted_address : $place->vicinity;
             $placeName = $place->name;
@@ -84,9 +80,9 @@ class PopularTime
 
         return Promise\settle($requestPromises)->wait();
     }
-    
+
     /**
-     * If place has position with time need to merge both place and times
+     * If place has position with time need to merge both place and times.
      * @param $place
      * @param $popularTime
      * @return array
@@ -94,28 +90,30 @@ class PopularTime
     private static function addPopularTimeToPlace($place, $popularTime)
     {
         $time = [];
-        if(isset($popularTime[84][0]))
+        if (isset($popularTime[84][0])) {
             $time['popular_time'] = self::mapDaysOnPopularTime($popularTime[84][0]);
-        
-        if(isset($popularTime[84][6]))
-            $time['now'] = $popularTime[84][6];
+        }
 
-        if(isset($popularTime[117][0]))
+        if (isset($popularTime[84][6])) {
+            $time['now'] = $popularTime[84][6];
+        }
+
+        if (isset($popularTime[117][0])) {
             $time['time_spent'] = $popularTime[117][0];
-        
+        }
+
         return array_merge((array) $place, $time);
     }
-    
+
     /**
-     * Convert popular times indexes to human read
+     * Convert popular times indexes to human read.
      * @param $popularTimes
      * @return array
      */
     private static function mapDaysOnPopularTime($popularTimes)
     {
         $popularTimeDays = [];
-        foreach($popularTimes as $popularTime)
-        {
+        foreach ($popularTimes as $popularTime) {
             $popularTimeDays[self::MAP_DAYS[$popularTime[0]]] = $popularTime;
         }
 

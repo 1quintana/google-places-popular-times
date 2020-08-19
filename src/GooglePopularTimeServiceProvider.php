@@ -45,7 +45,7 @@ class GooglePopularTimeServiceProvider extends ServiceProvider
     {
         return ['googlepopulartime'];
     }
-    
+
     /**
      * Console-specific booting.
      *

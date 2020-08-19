@@ -28,3 +28,13 @@ jobs:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: vendor/bin/phpunit
+
+  php-cs-fixer:
+
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install
+      run: composer install
+    - name: Run php-cs-fixer
+      run: ./vendor/bin/php-cs-fixer fix --dry-run --diff --config=.php_cs
