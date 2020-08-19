@@ -13,11 +13,6 @@ class GooglePopularTimeServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'lquintana');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'lquintana');
-        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        // $this->loadRoutesFrom(__DIR__.'/routes.php');
-
         // Publishing is only necessary when using the CLI.
         if ($this->app->runningInConsole()) {
             $this->bootForConsole();
@@ -34,9 +29,11 @@ class GooglePopularTimeServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__.'/../config/googlepopulartime.php', 'googlepopulartime');
 
         // Register the service the package provides.
-        $this->app->singleton('googlepopulartime', function ($app) {
-            return new GooglePopularTime;
+        $this->app->singleton(GooglePopularTime::class, function ($app) {
+            return new GooglePopularTime($app['config']['googlepopulartime']);
         });
+
+        $this->app->alias(GooglePopularTime::class, 'googlepopulartime');
     }
 
     /**
@@ -60,23 +57,5 @@ class GooglePopularTimeServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../config/googlepopulartime.php' => config_path('googlepopulartime.php'),
         ], 'googlepopulartime.config');
-
-        // Publishing the views.
-        /*$this->publishes([
-            __DIR__.'/../resources/views' => base_path('resources/views/vendor/lquintana'),
-        ], 'googlepopulartime.views');*/
-
-        // Publishing assets.
-        /*$this->publishes([
-            __DIR__.'/../resources/assets' => public_path('vendor/lquintana'),
-        ], 'googlepopulartime.views');*/
-
-        // Publishing the translation files.
-        /*$this->publishes([
-            __DIR__.'/../resources/lang' => resource_path('lang/vendor/lquintana'),
-        ], 'googlepopulartime.views');*/
-
-        // Registering package commands.
-        // $this->commands([]);
     }
 }
