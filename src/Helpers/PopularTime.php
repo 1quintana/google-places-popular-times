@@ -35,10 +35,11 @@ class PopularTime
 
     /**
      * Return Place with popular times.
+     *
      * @param array $places
      * @return array
      */
-    public static function placesWithPopularTimes($places = [])
+    public static function placesWithPopularTimes(array $places): array
     {
         $results = self::getPopularTimes($places);
 
@@ -62,10 +63,11 @@ class PopularTime
 
     /**
      * GetAsync all the times for all given places.
+     *
      * @param array $places
      * @return array
      */
-    public static function getPopularTimes($places = [])
+    public static function getPopularTimes(array $places)
     {
         $client = new Client();
 
@@ -83,6 +85,7 @@ class PopularTime
 
     /**
      * If place has position with time need to merge both place and times.
+     *
      * @param $place
      * @param $popularTime
      * @return array
@@ -107,10 +110,11 @@ class PopularTime
 
     /**
      * Convert popular times indexes to human read.
+     *
      * @param $popularTimes
      * @return array
      */
-    private static function mapDaysOnPopularTime($popularTimes)
+    private static function mapDaysOnPopularTime($popularTimes): array
     {
         $popularTimeDays = [];
         foreach ($popularTimes as $popularTime) {

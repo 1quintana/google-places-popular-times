@@ -1,7 +1,7 @@
 {
-    "name": "lquintana/googlepopulartime",
-    "description": ":package_description",
-    "license": "license",
+    "name": "lquintana/google-popular-times",
+    "description": "Get places from google with its own pupular time for Laravel 6 and over",
+    "license": "MIT",
     "authors": [
         {
             "name": "Luciano Quintana",
@@ -10,7 +10,7 @@
         }
     ],
     "homepage": "https://github.com/lquintana/googlepopulartime",
-    "keywords": ["Laravel", "GooglePopularTime"],
+    "keywords": ["Laravel", "Google Places", "Popular Times", "Google", "Places"],
     "require": {
         "illuminate/support": "~5|~6|~7",
         "friendsofphp/php-cs-fixer": "^2.16"
