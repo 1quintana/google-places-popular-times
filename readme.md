@@ -4,7 +4,7 @@
 [![Total Downloads][ico-downloads]][link-downloads]
 [![Build Status][ico-travis]][link-travis]
 
-I have no idea why Google is not sharing popular times yet in their API, so I had to develop my own solution and I would like to share it building this package. With this package you can get a list of places with its popular times or also a place details with its popular times.
+After over 2000 download I had to close the other package since it was getting hard to maintain it was only working up to Laravel 5.6. I have no idea why Google is not sharing popular times yet in their API, so I developed this solution and I would like to share with the community of developers building this package. With this package you can get a list of places with its popular times or also a place details with its popular times.
 
 After different testing I found this way which looks like the fastest one. I am not scraping google to extract the popular time, but I will simulate a serching and extract the results from there.
 
