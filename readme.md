@@ -3,7 +3,7 @@
 [![The MIT License](https://img.shields.io/badge/license-MIT-orange.svg?style=flat-square)](http://opensource.org/licenses/MIT)
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
-[![Build Status][ico-travis]][link-travis]
+![Build Status][ico-github]
 
 After over 2000 download I had to close the other package since it was getting hard to maintain it was only working up to Laravel 5.6. I have no idea why Google is not sharing popular times yet in their API, so I developed this solution and I would like to share with the community of developers building this package. With this package you can get a list of places with its popular times or also a place details with its popular times.
 
@@ -156,12 +156,11 @@ license. Please see the [license file](license.md) for more information.
 
 [ico-version]: https://img.shields.io/packagist/v/lquintana/google-popular-times.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/lquintana/google-popular-times.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/lquintana/google-popular-times/master.svg?style=flat-square
+[ico-github]: https://img.shields.io/github/workflow/status/1quintana/google-popular-time/Laravel
 [ico-styleci]: https://styleci.io/repos/12345678/shield
 
 [link-packagist]: https://packagist.org/packages/lquintana/google-popular-times
 [link-downloads]: https://packagist.org/packages/lquintana/google-popular-times
-[link-travis]: https://travis-ci.org/1quintana/google-popular-times
 [link-styleci]: https://styleci.io/repos/12345678
 [link-author]: https://github.com/lquintana
 [link-contributors]: ../../contributors
