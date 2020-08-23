@@ -10,6 +10,7 @@ $rules = [
     ],
     'blank_line_after_namespace' => true,
     'blank_line_after_opening_tag' => true,
+    'logical_operators' => true,
     'blank_line_before_statement' => [
         'statements' => ['return']
     ],

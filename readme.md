@@ -1,5 +1,6 @@
 # GooglePopularTime
 
+[![The MIT License](https://img.shields.io/badge/license-MIT-orange.svg?style=flat-square)](http://opensource.org/licenses/MIT)
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
 [![Build Status][ico-travis]][link-travis]
@@ -153,14 +154,14 @@ If you discover any security related issues, please email author email instead o
 
 license. Please see the [license file](license.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/lquintana/googlepopulartime.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/lquintana/googlepopulartime.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/lquintana/googlepopulartime/master.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/lquintana/google-popular-times.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/lquintana/google-popular-times.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/lquintana/google-popular-times/master.svg?style=flat-square
 [ico-styleci]: https://styleci.io/repos/12345678/shield
 
-[link-packagist]: https://packagist.org/packages/lquintana/googlepopulartime
-[link-downloads]: https://packagist.org/packages/lquintana/googlepopulartime
-[link-travis]: https://travis-ci.org/lquintana/googlepopulartime
+[link-packagist]: https://packagist.org/packages/lquintana/google-popular-times
+[link-downloads]: https://packagist.org/packages/lquintana/google-popular-times
+[link-travis]: https://travis-ci.org/1quintana/google-popular-times
 [link-styleci]: https://styleci.io/repos/12345678
 [link-author]: https://github.com/lquintana
 [link-contributors]: ../../contributors

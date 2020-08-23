@@ -9,7 +9,7 @@
             "homepage": "https://github.com/1quintana/"
         }
     ],
-    "homepage": "https://github.com/lquintana/googlepopulartime",
+    "homepage": "https://github.com/1quintana/google-popular-time",
     "keywords": ["Laravel", "Google Places", "Popular Times", "Google", "Places"],
     "require": {
         "illuminate/support": "~5|~6|~7",
