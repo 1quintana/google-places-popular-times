@@ -6,7 +6,7 @@
 ![Build Status][ico-github]
 
 ## Introduction
-Using this package you can get a list of places with its popular times or also a place details with its popular times.
+Using this package you can get a list of places with its popular times or also a place details with its popular times. Time and percentage of popularity for certain time is also included in the results.
 
 Follow the google API documentation to understand their requirements and use this package https://developers.google.com/places/web-service/intro
 
@@ -120,6 +120,9 @@ This is an example of the url to get a place with its own popular times.
 `http://places.test/api/places/ChIJ5z2kxpsB2YgRjUgd_WuWdWc`
 
 * Do not forget to create the route.
+
+In the results you can find the time and percentage of popularity in that time.
+![screen shot 2020-08-28 at 9 51 21 am](https://user-images.githubusercontent.com/11234646/91604318-0e8e4f00-e934-11ea-9877-c7cc5735b1b3.png)
 
 If you just want a list of places without popular time this is the method 
 ``` php
