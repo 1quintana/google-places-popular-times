@@ -5,15 +5,11 @@
 [![Total Downloads][ico-downloads]][link-downloads]
 ![Build Status][ico-github]
 
-After over 2000 download I had to close the other package since it was getting hard to maintain it was only working up to Laravel 5.6. I have no idea why Google is not sharing popular times yet in their API, so I developed this solution and I would like to share with the community of developers building this package. With this package you can get a list of places with its popular times or also a place details with its popular times.
-
-After different testing I found this way which looks like the fastest one. I am not scraping google to extract the popular time, but I will simulate a serching and extract the results from there.
+Using this package you can get a list of places with its popular times or also a place details with its popular times.
 
 ## Introduction
 
-Everyone is welcome to became part of this project, but keep in mind that if you open a PR it will need to pass the github actions so I can review it.
-
-You have to refer to the google API to understand their requirements and use this package https://developers.google.com/places/web-service/intro
+Follow the google API documentation to understand their requirements and use this package https://developers.google.com/places/web-service/intro
 
 
 ## Requirements
@@ -30,10 +26,15 @@ $ composer require lquintana/google-popular-times
 ```
 
 ## Configuration
-You need to create a google key from the google console. The key need permisions to use places API. Add the following variables to the .env file in Laravel and replace YOUR GOOGLE KEY HERE for the google key.
+You need to create a google key from the google console give it the rigth permisions to use places API. Add the following variables to the .env file in your project Laravel and replace the string YOUR-GOOGLE-KEY for the google key.
 
 ``` bash
-GOOGLE_KEY=YOUR GOOGLE KEY HERE
+GOOGLE_API_KEY=YOUR-GOOGLE-KEY
+```
+
+Publish the config file with following artisan command
+``` bash
+php artisan vendor:publish --provider="googlepopulartime"
 ```
 
 ## Usage
