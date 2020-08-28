@@ -56,6 +56,6 @@ class GooglePopularTimeServiceProvider extends ServiceProvider
         // Publishing the configuration file.
         $this->publishes([
             __DIR__.'/../config/googlepopulartime.php' => config_path('googlepopulartime.php'),
-        ], 'googlepopulartime.config');
+        ], 'googlepopulartime');
     }
 }
