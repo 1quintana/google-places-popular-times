@@ -5,9 +5,8 @@
 [![Total Downloads][ico-downloads]][link-downloads]
 ![Build Status][ico-github]
 
-Using this package you can get a list of places with its popular times or also a place details with its popular times.
-
 ## Introduction
+Using this package you can get a list of places with its popular times or also a place details with its popular times.
 
 Follow the google API documentation to understand their requirements and use this package https://developers.google.com/places/web-service/intro
 
@@ -34,7 +33,7 @@ GOOGLE_API_KEY=YOUR-GOOGLE-KEY
 
 Publish the config file with following artisan command
 ``` bash
-php artisan vendor:publish --provider="googlepopulartime"
+php artisan vendor:publish --tag="googlepopulartimes"
 ```
 
 ## Usage
