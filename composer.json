@@ -1,6 +1,6 @@
 {
     "name": "lquintana/google-popular-times",
-    "description": "Get places from google with its own pupular time for Laravel 6 and over",
+    "description": "Get google places with its own pupular time for Laravel >= 5.8",
     "license": "MIT",
     "authors": [
         {
