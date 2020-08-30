@@ -1,5 +1,5 @@
 {
-    "name": "lquintana/google-popular-times",
+    "name": "lquintana/google-places-popular-times",
     "description": "Get google places with its own pupular time for Laravel >= 5.8",
     "license": "MIT",
     "authors": [
@@ -9,7 +9,7 @@
             "homepage": "https://github.com/1quintana/"
         }
     ],
-    "homepage": "https://github.com/1quintana/google-popular-time",
+    "homepage": "https://github.com/1quintana/google-places-popular-times",
     "keywords": [
         "Laravel",
         "Google Places",
