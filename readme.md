@@ -3,7 +3,7 @@
 [![The MIT License](https://img.shields.io/badge/license-MIT-orange.svg?style=flat-square)](http://opensource.org/licenses/MIT)
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
-![Build Status][ico-github]
+![Laravel](https://github.com/1quintana/google-places-popular-times/workflows/Laravel/badge.svg)
 
 ## Introduction
 Using this package you can get a list of places with its popular times or also a place details with its popular times. Time and percentage of popularity for certain time is also included in the results.
