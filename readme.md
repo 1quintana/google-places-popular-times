@@ -21,7 +21,7 @@ Follow the google API documentation to understand their requirements and use thi
 Via Composer
 
 ``` bash
-$ composer require lquintana/google-popular-times
+$ composer require lquintana/google-places-popular-times
 ```
 
 ## Configuration
@@ -157,13 +157,13 @@ If you discover any security related issues, please email author email instead o
 
 license. Please see the [license file](license.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/lquintana/google-popular-times.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/lquintana/google-popular-times.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/lquintana/google-places-popular-times.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/lquintana/google-places-popular-times.svg?style=flat-square
 [ico-github]: https://img.shields.io/github/workflow/status/1quintana/google-popular-time/Laravel
 [ico-styleci]: https://styleci.io/repos/12345678/shield
 
-[link-packagist]: https://packagist.org/packages/lquintana/google-popular-times
-[link-downloads]: https://packagist.org/packages/lquintana/google-popular-times
+[link-packagist]: https://packagist.org/packages/lquintana/google-places-popular-times
+[link-downloads]: https://packagist.org/packages/lquintana/google-places-popular-times
 [link-styleci]: https://styleci.io/repos/12345678
-[link-author]: https://github.com/lquintana
+[link-author]: https://github.com/1quintana
 [link-contributors]: ../../contributors
